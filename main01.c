@@ -42,14 +42,13 @@ int main(int argv, char *argc[])
 		exit(1);
 	else 
 	{
-		q = strlen(file);
-		if ( q > 50 ) 
+		if ( strlen(file) > 50 ) 
 		{
 				printf("Get a grip! File name less than 50 letters please.\n");
 				exit(1);
 		}
 		
-		fptr = fopen(file, "r");		
+		fptr = fopen(file, "rb");		
 		if ( fptr == NULL ) 
 		{
 			printf("No such file.\n");
@@ -85,7 +84,7 @@ int letter_frequency(char *filename)
 	 */
 	
 	/* Open file: */
-	fptr = fopen(filename, "r");
+	fptr = fopen(filename, "rb");
 	
 	if ( fptr == NULL ) 	
 		exit(1);
@@ -125,7 +124,7 @@ void compress(char *filename)
 	FILE *outfile;
 	
 	/* Open file: */
-	fptr = fopen(filename, "r");
+	fptr = fopen(filename, "rb");
 	
 	if ( fptr == NULL )
 		exit(1);
